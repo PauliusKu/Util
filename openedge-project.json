@@ -1,0 +1,17 @@
+{
+  "charset": "utf-8",
+  "dbConnections": [],
+  "oeversion": "12.8",
+  "procedures": [],
+  "name": "Util",
+  "profiles": [],
+  "package_name": "PauliusKup.Util",
+  "graphicalMode": false,
+  "version": "0.0.1",
+  "numThreads": 4,
+  "buildPath": [{
+    "path": "src",
+    "type": "source"
+  }],
+  "dependencies": []
+}
