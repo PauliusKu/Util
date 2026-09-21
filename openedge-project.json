@@ -5,7 +5,7 @@
   "procedures": [],
   "name": "Util",
   "profiles": [],
-  "pope_package_name": "PauliusKup.Util",
+  "popePackageName": "PauliusKup.Util",
   "graphicalMode": false,
   "version": "0.0.1",
   "numThreads": 4,
@@ -13,5 +13,5 @@
     "path": "src",
     "type": "source"
   }],
-  "pope_dependencies": {}
+  "popeDependencies": {}
 }
