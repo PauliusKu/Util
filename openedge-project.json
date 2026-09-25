@@ -9,6 +9,7 @@
   "graphicalMode": false,
   "version": "0.0.1",
   "numThreads": 4,
+  "popeToolVersion": "0.2.0",
   "buildPath": [{
     "path": "src",
     "type": "source"
