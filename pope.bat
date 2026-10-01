@@ -23,6 +23,12 @@ if exist "%POPE_SUBDIR%\gradlew.bat" (
 if "%~1"=="" goto usage
 set COMMAND=%~1
 
+if /I "%COMMAND%"=="version" (
+    if not "%~2"=="" goto usage
+    call :run_gradle -q popeVersion
+    goto :eof
+)
+
 if /I "%COMMAND%"=="install" (
     if "%~2"=="" (
         call :run_gradle popeInstall
@@ -90,6 +96,12 @@ if /I "%COMMAND%"=="prune" (
     goto :eof
 )
 
+if /I "%COMMAND%"=="prepare" (
+    if not "%~2"=="" goto usage
+    call :run_gradle popePrepare
+    goto :eof
+)
+
 goto usage
 
 :run_gradle
@@ -102,13 +114,16 @@ goto :eof
 
 :usage
 echo Usage:
-echo   pope install                          resolve declared dependencies
+echo   pope version                           print the installed pope plugin version
+echo   pope install                           resolve declared dependencies
 echo   pope install ^<package^>[:^<versionSpec^>] add + resolve a dependency in one step
-echo   pope uninstall ^<package^>              remove a dependency and clean up its files
+echo   pope uninstall ^<package^>               remove a dependency and clean up its files
 echo   pope propath [--tests]                 print the generated PROPATH
 echo                                          (--tests also includes buildPath's "test" entries)
 echo   pope registry add [^<prefix^> ^<url^> [^<name^>]]  add a registry to pope-registries.properties
 echo                                          (interactive if prefix/url are omitted)
 echo   pope prune [--dry-run]                 remove pope_packages/ entries no longer part of
 echo                                          the resolved dependency graph
+echo   pope prepare                           get this package ready to publish (pins dependencies,
+echo                                          gitignores dev-only files, checks popePackageName)
 exit /b 1
